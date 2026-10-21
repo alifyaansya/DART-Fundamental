@@ -9,6 +9,7 @@ import 'package:dasar_widget/widgets/icon_widget.dart';
 import 'package:dasar_widget/widgets/image_widget.dart';
 import 'package:dasar_widget/widgets/card_widget.dart';
 import 'package:dasar_widget/widgets/row_widget.dart';
+import 'package:dasar_widget/widgets/column_widget.dart';
 
 class MenuPage extends StatelessWidget {
   const MenuPage({super.key});
@@ -261,13 +262,14 @@ class MenuPage extends StatelessWidget {
             color: Colors.yellow,
           ),
 
-          // TOMBOL ROW
+          // TOMBOL ROW & COLUMN
           Padding(
             padding: const EdgeInsets.all(10),
             child: Wrap(
               spacing: 10,
               runSpacing: 10,
               children: [
+                // TOMBOL ROW
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -290,6 +292,30 @@ class MenuPage extends StatelessWidget {
                   ),
                   child: const Text('Row'),
                 ),
+
+                // TOMBOL COLUMN
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ColumnWidget(),
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.purpleAccent,
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 25,
+                      vertical: 14,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                  ),
+                  child: const Text('Column'),
+                ),
               ],
             ),
           ),
@@ -298,4 +324,3 @@ class MenuPage extends StatelessWidget {
     );
   }
 }
-

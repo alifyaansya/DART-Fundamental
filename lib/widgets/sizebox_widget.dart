@@ -36,7 +36,7 @@ Widget build(BuildContext context) {
                 SizedBox(height: 15),
 
                 Text(
-                  'Donianto',
+                  'Alifya',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,

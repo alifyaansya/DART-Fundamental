@@ -12,6 +12,9 @@ import 'package:dasar_widget/widgets/row_widget.dart';
 import 'package:dasar_widget/widgets/column_widget.dart';
 import 'package:dasar_widget/widgets/tugas1.dart';
 import 'package:dasar_widget/widgets/stack_widget.dart';
+import 'package:dasar_widget/widgets/expanded_widget.dart';
+import 'package:dasar_widget/widgets/flexible_widget.dart';
+import 'package:dasar_widget/widgets/align_widget.dart';
 
 class MenuPage extends StatelessWidget {
   const MenuPage({super.key});
@@ -27,9 +30,7 @@ class MenuPage extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => const TextWidget(),
-                ),
+                MaterialPageRoute(builder: (context) => const TextWidget()),
               );
             },
             child: const Padding(
@@ -73,9 +74,7 @@ class MenuPage extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => const CenterWidget(),
-                ),
+                MaterialPageRoute(builder: (context) => const CenterWidget()),
               );
             },
             child: const Padding(
@@ -96,9 +95,7 @@ class MenuPage extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => const SizeBoxWidget(),
-                ),
+                MaterialPageRoute(builder: (context) => const SizeBoxWidget()),
               );
             },
             child: const Padding(
@@ -119,9 +116,7 @@ class MenuPage extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => const PaddingWidget(),
-                ),
+                MaterialPageRoute(builder: (context) => const PaddingWidget()),
               );
             },
             child: const Padding(
@@ -142,9 +137,7 @@ class MenuPage extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => const IconWidget(),
-                ),
+                MaterialPageRoute(builder: (context) => const IconWidget()),
               );
             },
             child: const Padding(
@@ -165,9 +158,7 @@ class MenuPage extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => const ImageWidget(),
-                ),
+                MaterialPageRoute(builder: (context) => const ImageWidget()),
               );
             },
             child: const Padding(
@@ -188,9 +179,7 @@ class MenuPage extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => const CardWidget(),
-                ),
+                MaterialPageRoute(builder: (context) => const CardWidget()),
               );
             },
             child: const Padding(
@@ -226,11 +215,7 @@ class MenuPage extends StatelessWidget {
           ),
 
           // GARIS KUNING
-          Container(
-            width: double.infinity,
-            height: 7,
-            color: Colors.yellow,
-          ),
+          Container(width: double.infinity, height: 7, color: Colors.yellow),
 
           // TOMBOL LAYOUT WIDGET
           Padding(
@@ -242,9 +227,7 @@ class MenuPage extends StatelessWidget {
                 _layoutButton('Row', () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => const RowWidget(),
-                    ),
+                    MaterialPageRoute(builder: (context) => const RowWidget()),
                   );
                 }),
                 _layoutButton('Column', () {
@@ -263,9 +246,30 @@ class MenuPage extends StatelessWidget {
                     ),
                   );
                 }),
-                _layoutButton('Expanded', null),
-                _layoutButton('Flexible', null),
-                _layoutButton('Align', null),
+                _layoutButton('Expanded', () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ExpandedWidget(),
+                    ),
+                  );
+                }),
+                _layoutButton('Flexible', () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const FlexibleWidget(),
+                    ),
+                  );
+                }),
+                _layoutButton('Align', () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AlignWidget(),
+                    ),
+                  );
+                }),
                 _layoutButton('Wrap', null),
                 _layoutButton('ListView', null),
                 _layoutButton('GridView', null),
@@ -291,18 +295,11 @@ class MenuPage extends StatelessWidget {
           ),
 
           // GARIS KUNING EVALUASI
-          Container(
-            width: double.infinity,
-            height: 7,
-            color: Colors.yellow,
-          ),
+          Container(width: double.infinity, height: 7, color: Colors.yellow),
 
           // TOMBOL TUGAS
           Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 40,
-              vertical: 12,
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -311,9 +308,7 @@ class MenuPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => const Tugas1(),
-                      ),
+                      MaterialPageRoute(builder: (context) => const Tugas1()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -324,10 +319,7 @@ class MenuPage extends StatelessWidget {
                   ),
                   child: const Text(
                     'TUGAS 1',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                 ),
 
@@ -342,10 +334,7 @@ class MenuPage extends StatelessWidget {
                   ),
                   child: const Text(
                     'TUGAS 2',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                 ),
               ],
@@ -356,10 +345,7 @@ class MenuPage extends StatelessWidget {
     );
   }
 
-  static Widget _layoutButton(
-    String text,
-    VoidCallback? onPressed,
-  ) {
+  static Widget _layoutButton(String text, VoidCallback? onPressed) {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
@@ -368,13 +354,8 @@ class MenuPage extends StatelessWidget {
         disabledBackgroundColor: Colors.purpleAccent,
         disabledForegroundColor: Colors.white,
         minimumSize: const Size(75, 40),
-        padding: const EdgeInsets.symmetric(
-          horizontal: 18,
-          vertical: 12,
-        ),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
       ),
       child: Text(text),
     );

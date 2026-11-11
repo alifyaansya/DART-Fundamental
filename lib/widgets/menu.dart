@@ -10,6 +10,8 @@ import 'package:dasar_widget/widgets/image_widget.dart';
 import 'package:dasar_widget/widgets/card_widget.dart';
 import 'package:dasar_widget/widgets/row_widget.dart';
 import 'package:dasar_widget/widgets/column_widget.dart';
+import 'package:dasar_widget/widgets/tugas1.dart';
+import 'package:dasar_widget/widgets/stack_widget.dart';
 
 class MenuPage extends StatelessWidget {
   const MenuPage({super.key});
@@ -31,11 +33,7 @@ class MenuPage extends StatelessWidget {
               );
             },
             child: const Padding(
-              padding: EdgeInsets.only(
-                top: 10,
-                left: 10,
-                right: 10,
-              ),
+              padding: EdgeInsets.only(top: 10, left: 10, right: 10),
               child: Text(
                 '1. Text Widget',
                 style: TextStyle(
@@ -58,11 +56,7 @@ class MenuPage extends StatelessWidget {
               );
             },
             child: const Padding(
-              padding: EdgeInsets.only(
-                top: 10,
-                left: 10,
-                right: 10,
-              ),
+              padding: EdgeInsets.only(top: 10, left: 10, right: 10),
               child: Text(
                 '2. Container Widget',
                 style: TextStyle(
@@ -85,11 +79,7 @@ class MenuPage extends StatelessWidget {
               );
             },
             child: const Padding(
-              padding: EdgeInsets.only(
-                top: 10,
-                left: 10,
-                right: 10,
-              ),
+              padding: EdgeInsets.only(top: 10, left: 10, right: 10),
               child: Text(
                 '3. Center Widget',
                 style: TextStyle(
@@ -112,11 +102,7 @@ class MenuPage extends StatelessWidget {
               );
             },
             child: const Padding(
-              padding: EdgeInsets.only(
-                top: 10,
-                left: 10,
-                right: 10,
-              ),
+              padding: EdgeInsets.only(top: 10, left: 10, right: 10),
               child: Text(
                 '4. Sizebox Widget',
                 style: TextStyle(
@@ -139,11 +125,7 @@ class MenuPage extends StatelessWidget {
               );
             },
             child: const Padding(
-              padding: EdgeInsets.only(
-                top: 10,
-                left: 10,
-                right: 10,
-              ),
+              padding: EdgeInsets.only(top: 10, left: 10, right: 10),
               child: Text(
                 '5. Padding Widget',
                 style: TextStyle(
@@ -166,11 +148,7 @@ class MenuPage extends StatelessWidget {
               );
             },
             child: const Padding(
-              padding: EdgeInsets.only(
-                top: 10,
-                left: 10,
-                right: 10,
-              ),
+              padding: EdgeInsets.only(top: 10, left: 10, right: 10),
               child: Text(
                 '6. Icon Widget',
                 style: TextStyle(
@@ -193,11 +171,7 @@ class MenuPage extends StatelessWidget {
               );
             },
             child: const Padding(
-              padding: EdgeInsets.only(
-                top: 10,
-                left: 10,
-                right: 10,
-              ),
+              padding: EdgeInsets.only(top: 10, left: 10, right: 10),
               child: Text(
                 '7. Image Widget',
                 style: TextStyle(
@@ -220,11 +194,7 @@ class MenuPage extends StatelessWidget {
               );
             },
             child: const Padding(
-              padding: EdgeInsets.only(
-                top: 10,
-                left: 10,
-                right: 10,
-              ),
+              padding: EdgeInsets.only(top: 10, left: 10, right: 10),
               child: Text(
                 '8. Card Widget',
                 style: TextStyle(
@@ -258,69 +228,155 @@ class MenuPage extends StatelessWidget {
           // GARIS KUNING
           Container(
             width: double.infinity,
-            height: 10,
+            height: 7,
             color: Colors.yellow,
           ),
 
-          // TOMBOL ROW & COLUMN
+          // TOMBOL LAYOUT WIDGET
           Padding(
             padding: const EdgeInsets.all(10),
             child: Wrap(
               spacing: 10,
-              runSpacing: 10,
+              runSpacing: 12,
               children: [
-                // TOMBOL ROW
+                _layoutButton('Row', () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const RowWidget(),
+                    ),
+                  );
+                }),
+                _layoutButton('Column', () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ColumnWidget(),
+                    ),
+                  );
+                }),
+                _layoutButton('Stack', () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const StackWidget(),
+                    ),
+                  );
+                }),
+                _layoutButton('Expanded', null),
+                _layoutButton('Flexible', null),
+                _layoutButton('Align', null),
+                _layoutButton('Wrap', null),
+                _layoutButton('ListView', null),
+                _layoutButton('GridView', null),
+              ],
+            ),
+          ),
+
+          // JUDUL EVALUASI
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(vertical: 12),
+            color: const Color(0xFF4053B3),
+            child: const Center(
+              child: Text(
+                'EVALUASI',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+
+          // GARIS KUNING EVALUASI
+          Container(
+            width: double.infinity,
+            height: 7,
+            color: Colors.yellow,
+          ),
+
+          // TOMBOL TUGAS
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 40,
+              vertical: 12,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                // TUGAS 1: BISA DIKLIK
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const RowWidget(),
+                        builder: (context) => const Tugas1(),
                       ),
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.purpleAccent,
-                    foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 25,
-                      vertical: 14,
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
+                    backgroundColor: Colors.yellow,
+                    foregroundColor: Colors.blue,
+                    elevation: 3,
+                    shape: const RoundedRectangleBorder(),
+                  ),
+                  child: const Text(
+                    'TUGAS 1',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
                     ),
                   ),
-                  child: const Text('Row'),
                 ),
 
-                // TOMBOL COLUMN
+                // TUGAS 2: FORMALITAS, TIDAK MEMBUKA HALAMAN
                 ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ColumnWidget(),
-                      ),
-                    );
-                  },
+                  onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.purpleAccent,
-                    foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 25,
-                      vertical: 14,
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
+                    backgroundColor: Colors.yellow,
+                    foregroundColor: Colors.blue,
+                    elevation: 3,
+                    shape: const RoundedRectangleBorder(),
+                  ),
+                  child: const Text(
+                    'TUGAS 2',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
                     ),
                   ),
-                  child: const Text('Column'),
                 ),
               ],
             ),
           ),
         ],
       ),
+    );
+  }
+
+  static Widget _layoutButton(
+    String text,
+    VoidCallback? onPressed,
+  ) {
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.purpleAccent,
+        foregroundColor: Colors.white,
+        disabledBackgroundColor: Colors.purpleAccent,
+        disabledForegroundColor: Colors.white,
+        minimumSize: const Size(75, 40),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 18,
+          vertical: 12,
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+        ),
+      ),
+      child: Text(text),
     );
   }
 }
